@@ -1,42 +1,42 @@
-// ================= FORM SUBMIT (GOOGLE SHEET CONNECTED) =================
+/* ================= FORM SUBMIT (GOOGLE SHEET CONNECTED) ================= */
+
 const form = document.getElementById("bookingForm");
 
 if (form) {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const inputs = form.querySelectorAll("input");
+    const btn = form.querySelector("button");
+    const originalText = btn.innerHTML;
+
+    // Validate inputs (mobile + desktop safe)
+    const inputs = form.querySelectorAll("input, textarea");
     let isValid = true;
 
-    // Validate inputs
     inputs.forEach((input) => {
       if (!input.value.trim()) {
-        input.classList.add("input-error");
+        input.style.border = "2px solid red";
         isValid = false;
       } else {
-        input.classList.remove("input-error");
+        input.style.border = "1px solid #ddd";
       }
     });
 
     if (!isValid) {
-      showToast("❌ Please fill all fields correctly", "error");
+      showToast("❌ Please fill all fields", "error");
       return;
     }
-
-    const btn = form.querySelector("button");
-    const originalText = btn.innerHTML;
 
     btn.innerHTML = "⏳ Submitting...";
     btn.disabled = true;
 
-    // Safer data collection (NO placeholders dependency)
+    // SAFE DATA COLLECTION (NO INDEX DEPENDENCY)
     const data = {
-      name: form.elements[0].value,
-      phone: form.elements[1].value,
-      email: form.elements[2].value,
-      destination: form.elements[3].value,
-      date: form.elements[4].value,
-      people: form.elements[5].value,
+      name: form.querySelector('[name="name"]')?.value || "",
+      email: form.querySelector('[name="email"]')?.value || "",
+      destination: form.querySelector('[name="destination"]')?.value || "",
+      date: form.querySelector('[name="date"]')?.value || "",
+      people: form.querySelector('[name="people"]')?.value || "",
       time: new Date().toISOString()
     };
 
@@ -58,8 +58,8 @@ if (form) {
       form.reset();
 
     } catch (error) {
+      console.error("Error:", error);
       showToast("❌ Submission Failed! Try Again", "error");
-      console.error(error);
     } finally {
       btn.innerHTML = originalText;
       btn.disabled = false;
@@ -67,7 +67,8 @@ if (form) {
   });
 }
 
-// ================= MODERN TOAST MESSAGE =================
+/* ================= TOAST NOTIFICATION ================= */
+
 function showToast(message, type = "success") {
   const toast = document.createElement("div");
 
@@ -87,18 +88,18 @@ function showToast(message, type = "success") {
     boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
     zIndex: "9999",
     opacity: "0",
-    transition: "all 0.3s ease"
+    transition: "all 0.3s ease",
+    maxWidth: "90%",
+    textAlign: "center"
   });
 
   document.body.appendChild(toast);
 
-  // animate in
   setTimeout(() => {
     toast.style.opacity = "1";
     toast.style.top = "30px";
   }, 50);
 
-  // remove
   setTimeout(() => {
     toast.style.opacity = "0";
     toast.style.top = "10px";
@@ -106,7 +107,8 @@ function showToast(message, type = "success") {
   }, 3000);
 }
 
-// ================= SCROLL ANIMATION (OPTIMIZED) =================
+/* ================= SCROLL ANIMATION ================= */
+
 const fadeElements = document.querySelectorAll(".fade-in");
 
 const observer = new IntersectionObserver(
@@ -118,23 +120,31 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  {
-    threshold: 0.15
-  }
+  { threshold: 0.15 }
 );
 
 fadeElements.forEach((el) => observer.observe(el));
 
-// ================= SMOOTH SCROLL =================
+/* ================= SMOOTH SCROLL ================= */
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
 
     const target = document.querySelector(this.getAttribute("href"));
     if (target) {
-      target.scrollIntoView({
-        behavior: "smooth"
-      });
+      target.scrollIntoView({ behavior: "smooth" });
     }
   });
 });
+
+/* ================= MOBILE MENU SUPPORT ================= */
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navMenu");
+
+if (toggle && nav) {
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+}
