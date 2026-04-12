@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | D4U Travels</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <!-- HEADER -->
-<header>
-  <h1>D4U TRAVELS</h1>
-  <nav>
+<header class="header">
+  <div class="logo">✈️ D4U TRAVELS</div>
+
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon">☰</label>
+
+  <nav class="nav">
     <a href="index.html">Home</a>
     <a href="packages.html">Packages</a>
     <a href="booking.html">Booking</a>
@@ -19,69 +29,79 @@
   </nav>
 </header>
 
-<!-- ABOUT SECTION -->
-<section class="fade-in">
-  <h1>About D4U Travels 🌍</h1>
-  <p>
-    D4U Travels is a trusted travel agency dedicated to providing the best travel experiences at affordable prices.
-    We help customers explore amazing destinations with comfort, safety, and convenience.
-  </p>
+<!-- HERO ABOUT -->
+<section class="hero small-hero">
+  <div class="hero-content">
+    <h1>About D4U Travels 🌍</h1>
+    <p>Your trusted partner for unforgettable journeys</p>
+  </div>
+</section>
+
+<!-- ABOUT DESCRIPTION -->
+<section class="section">
+  <div class="text-box">
+    <p>
+      D4U Travels is a trusted travel agency dedicated to providing the best travel experiences at affordable prices.
+      We help customers explore amazing destinations with comfort, safety, and convenience.
+    </p>
+  </div>
 </section>
 
 <!-- WHY CHOOSE US -->
-<section class="services fade-in">
+<section class="section dark">
   <h2>Why Choose Us?</h2>
-  <ul>
-    <li>✅ Affordable Tour Packages</li>
-    <li>✅ Trusted & Reliable Service</li>
-    <li>✅ 24/7 Customer Support</li>
-    <li>✅ Easy Booking Process</li>
-    <li>✅ Best Travel Deals</li>
-  </ul>
+
+  <div class="grid">
+    <div class="card">✅ Affordable Tour Packages</div>
+    <div class="card">✅ Trusted & Reliable Service</div>
+    <div class="card">✅ 24/7 Customer Support</div>
+    <div class="card">✅ Easy Booking Process</div>
+    <div class="card">✅ Best Travel Deals</div>
+  </div>
 </section>
 
-<!-- EXPERIENCE / STATS -->
-<section class="offers fade-in">
+<!-- STATS -->
+<section class="section">
   <h2>Our Achievements</h2>
 
-  <div class="card">
-    <h3>500+</h3>
-    <p>Happy Customers</p>
-  </div>
+  <div class="grid">
+    <div class="card stat">
+      <h3>500+</h3>
+      <p>Happy Customers</p>
+    </div>
 
-  <div class="card">
-    <h3>100+</h3>
-    <p>Tour Packages</p>
-  </div>
+    <div class="card stat">
+      <h3>100+</h3>
+      <p>Tour Packages</p>
+    </div>
 
-  <div class="card">
-    <h3>5★</h3>
-    <p>Customer Rating</p>
+    <div class="card stat">
+      <h3>5★</h3>
+      <p>Customer Rating</p>
+    </div>
   </div>
 </section>
 
 <!-- MISSION -->
-<section class="fade-in">
-  <h2>Our Mission</h2>
+<section class="cta">
+  <h2>Our Mission 🎯</h2>
   <p>
     Our mission is to make travel easy, affordable, and enjoyable for everyone.
-    We aim to provide the best service and unforgettable experiences to our customers.
+    We aim to provide unforgettable travel experiences with world-class service.
   </p>
 </section>
 
 <!-- CALL TO ACTION -->
-<section class="fade-in">
+<section class="section">
   <h2>Start Your Journey Today ✈️</h2>
-  <p>Book your next trip with us and explore the world!</p>
+  <p>Book your next trip with D4U Travels and explore the world with confidence.</p>
   <a href="booking.html" class="btn">Book Now</a>
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer class="footer">
   <p>© 2026 D4U Travels | All Rights Reserved</p>
 </footer>
-
-<script src="script.js"></script>
 
 </body>
 </html>
