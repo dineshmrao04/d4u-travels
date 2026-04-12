@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>D4U Travels</title>
+
+  <title>D4U Travels | Explore the World</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Book affordable travel packages with D4U Travels. Easy booking and trusted service." />
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Google Font (Modern Look) -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
@@ -18,7 +22,10 @@
 <header class="header">
   <div class="logo">✈️ D4U TRAVELS</div>
 
-  <nav class="nav">
+  <!-- MOBILE MENU BUTTON -->
+  <div class="menu-toggle" id="menuToggle">☰</div>
+
+  <nav class="nav" id="navMenu">
     <a href="index.html">Home</a>
     <a href="packages.html">Packages</a>
     <a href="booking.html">Booking</a>
@@ -32,7 +39,11 @@
   <div class="hero-content">
     <h1>Explore the World with D4U Travels 🌍</h1>
     <p>Affordable Packages • Easy Booking • Trusted Service</p>
-    <a href="booking.html" class="btn">🚀 Book Your Trip</a>
+
+    <div class="hero-buttons">
+      <a href="booking.html" class="btn primary">🚀 Book Your Trip</a>
+      <a href="packages.html" class="btn secondary">View Packages</a>
+    </div>
   </div>
 </section>
 
@@ -45,19 +56,22 @@
     <div class="card">
       <h3>Goa</h3>
       <p>3 Days / 2 Nights</p>
-      <span>₹4999</span>
+      <span>₹4,999</span>
+      <a href="booking.html" class="card-btn">Book Now</a>
     </div>
 
     <div class="card">
       <h3>Manali</h3>
       <p>5 Days / 4 Nights</p>
-      <span>₹6999</span>
+      <span>₹6,999</span>
+      <a href="booking.html" class="card-btn">Book Now</a>
     </div>
 
     <div class="card">
       <h3>Dubai</h3>
       <p>4 Days / 3 Nights</p>
-      <span>₹29999</span>
+      <span>₹29,999</span>
+      <a href="booking.html" class="card-btn">Book Now</a>
     </div>
 
   </div>
@@ -90,22 +104,35 @@
 <section class="cta">
   <h2>Ready to Travel?</h2>
   <p>Book your dream trip today with D4U Travels</p>
-  <a href="booking.html" class="btn">Start Booking</a>
+  <a href="booking.html" class="btn primary">Start Booking</a>
 </section>
 
-<!-- HELP -->
+<!-- EMAIL ONLY -->
 <section class="section">
   <h2>Need Help?</h2>
-  <a class="btn" 
+  <p>Contact us via email</p>
+
+  <a class="btn"
      href="mailto:dineshmrao04@gmail.com?subject=Travel Booking Inquiry&body=Hello D4U Travels, I want to book a trip.">
-     📧 Book via Email
+     📧 Email Us
   </a>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   <p>© 2026 D4U Travels | All Rights Reserved</p>
+  <p>Email: <a href="mailto:dineshmrao04@gmail.com">dineshmrao04@gmail.com</a></p>
 </footer>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("navMenu");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+</script>
 
 </body>
 </html>
