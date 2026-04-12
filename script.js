@@ -1,5 +1,8 @@
 
-/* ================= FORM SUBMIT (GOOGLE SHEET CONNECTED) ================= */
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxWArCmpbhWzUNk5w4QiV1D7u52LtYyOnqKCGO4sU9dAYwRnAo9bg3-uo0q20-B6Sgc/exec";
+
+/* ================= FORM SUBMIT ================= */
 
 const form = document.getElementById("bookingForm");
 
@@ -10,11 +13,10 @@ if (form) {
     const btn = form.querySelector("button");
     const originalText = btn.innerHTML;
 
-    // Get all inputs + textarea (mobile + desktop safe)
     const fields = form.querySelectorAll("input, textarea");
-
     let isValid = true;
 
+    // VALIDATION
     fields.forEach((field) => {
       if (!field.value.trim()) {
         field.style.border = "2px solid red";
@@ -29,10 +31,11 @@ if (form) {
       return;
     }
 
+    // BUTTON LOADING STATE
     btn.innerHTML = "⏳ Submitting...";
     btn.disabled = true;
 
-    // SAFE DATA COLLECTION (UPDATED WITH FROM + TO)
+    // DATA COLLECT (FROM + TO INCLUDED)
     const data = {
       name: form.querySelector('[name="name"]')?.value || "",
       email: form.querySelector('[name="email"]')?.value || "",
@@ -44,16 +47,13 @@ if (form) {
     };
 
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycby7ZCPueHHUWBmbGvJqNoeKeGebPFVOlg8k055tlWFvhSZ4CdKIu45talHJbCKLzZwd/exec",
-        {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json"
-          }
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
         }
-      );
+      });
 
       await response.text();
 
@@ -61,7 +61,7 @@ if (form) {
       form.reset();
 
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Submission Error:", error);
       showToast("❌ Submission Failed! Try Again", "error");
     } finally {
       btn.innerHTML = originalText;
@@ -70,7 +70,7 @@ if (form) {
   });
 }
 
-/* ================= TOAST NOTIFICATION ================= */
+/* ================= TOAST ================= */
 
 function showToast(message, type = "success") {
   const toast = document.createElement("div");
@@ -91,7 +91,7 @@ function showToast(message, type = "success") {
     boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
     zIndex: "9999",
     opacity: "0",
-    transition: "all 0.3s ease",
+    transition: "0.3s",
     maxWidth: "90%",
     textAlign: "center"
   });
@@ -141,7 +141,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-/* ================= MOBILE MENU SUPPORT ================= */
+/* ================= MOBILE MENU ================= */
 
 const toggle = document.getElementById("menuToggle");
 const nav = document.getElementById("navMenu");
