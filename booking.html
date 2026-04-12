@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Booking | D4U Travels</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Book your trip with D4U Travels بسهولة. Fast, secure and affordable travel booking." />
 
   <link rel="stylesheet" href="style.css" />
 
@@ -17,10 +21,13 @@
 <header class="header">
   <div class="logo">✈️ D4U TRAVELS</div>
 
-  <nav class="nav">
+  <!-- MOBILE MENU -->
+  <div class="menu-toggle" id="menuToggle">☰</div>
+
+  <nav class="nav" id="navMenu">
     <a href="index.html">Home</a>
     <a href="packages.html">Packages</a>
-    <a href="booking.html">Booking</a>
+    <a href="booking.html" class="active">Booking</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -39,23 +46,21 @@
   <div class="form-container">
 
     <h2>Fill Your Details</h2>
-    <p>We will contact you shortly after submission</p>
+    <p>We will contact you via email after submission</p>
 
     <form id="bookingForm" class="form">
 
-      <input type="text" placeholder="Full Name" required />
+      <input type="text" name="name" placeholder="Full Name" required />
 
-      <input type="tel" placeholder="Phone Number" required />
+      <input type="email" name="email" placeholder="Email Address" required />
 
-      <input type="email" placeholder="Email Address" required />
+      <input type="text" name="destination" placeholder="Destination (Goa, Manali, Dubai...)" required />
 
-      <input type="text" placeholder="Destination (Goa, Manali, Dubai...)" required />
+      <input type="date" name="date" required />
 
-      <input type="date" required />
+      <input type="number" name="people" placeholder="Number of People" min="1" required />
 
-      <input type="number" placeholder="Number of People" min="1" required />
-
-      <button type="submit" class="btn">🚀 Submit Booking</button>
+      <button type="submit" class="btn primary">🚀 Submit Booking</button>
 
     </form>
 
@@ -70,7 +75,7 @@
     <div class="card">💰 Best Price Guarantee</div>
     <div class="card">⚡ Easy & Fast Booking</div>
     <div class="card">🤝 Trusted Travel Partner</div>
-    <div class="card">📞 24/7 Customer Support</div>
+    <div class="card">📧 Email Support</div>
   </div>
 </section>
 
@@ -83,12 +88,31 @@
     <p>📧 <b>Email:</b> dineshmrao04@gmail.com</p>
     <p>⏱ We reply within 24 hours</p>
   </div>
+
+  <a class="btn"
+     href="mailto:dineshmrao04@gmail.com?subject=Booking Help&body=Hello D4U Travels, I need help with booking.">
+     Email Support
+  </a>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   <p>© 2026 D4U Travels | All Rights Reserved</p>
+  <p>Email: <a href="mailto:dineshmrao04@gmail.com">dineshmrao04@gmail.com</a></p>
 </footer>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("navMenu");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+</script>
+
+<!-- BOOKING SCRIPT (Google Sheets Ready) -->
+<script src="script.js"></script>
 
 </body>
 </html>
