@@ -1,3 +1,4 @@
+
 /* ================= FORM SUBMIT (GOOGLE SHEET CONNECTED) ================= */
 
 const form = document.getElementById("bookingForm");
@@ -9,32 +10,34 @@ if (form) {
     const btn = form.querySelector("button");
     const originalText = btn.innerHTML;
 
-    // Validate inputs (mobile + desktop safe)
-    const inputs = form.querySelectorAll("input, textarea");
+    // Get all inputs + textarea (mobile + desktop safe)
+    const fields = form.querySelectorAll("input, textarea");
+
     let isValid = true;
 
-    inputs.forEach((input) => {
-      if (!input.value.trim()) {
-        input.style.border = "2px solid red";
+    fields.forEach((field) => {
+      if (!field.value.trim()) {
+        field.style.border = "2px solid red";
         isValid = false;
       } else {
-        input.style.border = "1px solid #ddd";
+        field.style.border = "1px solid #ddd";
       }
     });
 
     if (!isValid) {
-      showToast("❌ Please fill all fields", "error");
+      showToast("❌ Please fill all fields correctly", "error");
       return;
     }
 
     btn.innerHTML = "⏳ Submitting...";
     btn.disabled = true;
 
-    // SAFE DATA COLLECTION (NO INDEX DEPENDENCY)
+    // SAFE DATA COLLECTION (UPDATED WITH FROM + TO)
     const data = {
       name: form.querySelector('[name="name"]')?.value || "",
       email: form.querySelector('[name="email"]')?.value || "",
-      destination: form.querySelector('[name="destination"]')?.value || "",
+      from: form.querySelector('[name="from"]')?.value || "",
+      to: form.querySelector('[name="to"]')?.value || "",
       date: form.querySelector('[name="date"]')?.value || "",
       people: form.querySelector('[name="people"]')?.value || "",
       time: new Date().toISOString()
