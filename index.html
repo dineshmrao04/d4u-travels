@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>D4U Travels</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Font (Modern Look) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
 <!-- HEADER -->
-<header>
-  <h1>D4U TRAVELS</h1>
-  <nav>
+<header class="header">
+  <div class="logo">✈️ D4U TRAVELS</div>
+
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon">☰</label>
+
+  <nav class="nav">
     <a href="index.html">Home</a>
     <a href="packages.html">Packages</a>
     <a href="booking.html">Booking</a>
@@ -19,81 +30,86 @@
   </nav>
 </header>
 
-<section class="hero fade-in">
+<!-- HERO -->
+<section class="hero">
   <div class="hero-content">
-    <h2>Explore the World with D4U Travels 🌍</h2>
-    <p>Affordable Packages | Easy Booking | Trusted Service</p>
+    <h1>Explore the World with D4U Travels 🌍</h1>
+    <p>Affordable Packages • Easy Booking • Trusted Service</p>
     <a href="booking.html" class="btn">🚀 Book Your Trip</a>
   </div>
 </section>
 
 <!-- OFFERS -->
-<section class="offers fade-in">
+<section class="section">
   <h2>🔥 Special Offers</h2>
 
-  <div class="card">
-    <h3>Goa</h3>
-    <p>3 Days / 2 Nights</p>
-    <p>₹4999</p>
-  </div>
+  <div class="grid">
 
-  <div class="card">
-    <h3>Manali</h3>
-    <p>5 Days / 4 Nights</p>
-    <p>₹6999</p>
-  </div>
+    <div class="card">
+      <h3>Goa</h3>
+      <p>3 Days / 2 Nights</p>
+      <span>₹4999</span>
+    </div>
 
-  <div class="card">
-    <h3>Dubai</h3>
-    <p>4 Days / 3 Nights</p>
-    <p>₹29999</p>
-  </div>
+    <div class="card">
+      <h3>Manali</h3>
+      <p>5 Days / 4 Nights</p>
+      <span>₹6999</span>
+    </div>
 
+    <div class="card">
+      <h3>Dubai</h3>
+      <p>4 Days / 3 Nights</p>
+      <span>₹29999</span>
+    </div>
+
+  </div>
 </section>
 
 <!-- SERVICES -->
-<section class="services fade-in">
+<section class="section dark">
   <h2>Our Services</h2>
-  <ul>
-    <li>✈️ Flight Booking</li>
-    <li>🏨 Hotel Booking</li>
-    <li>🧳 Tour Packages</li>
-    <li>🛂 Visa Assistance</li>
-    <li>🚗 Car Rentals</li>
-  </ul>
+
+  <div class="grid">
+    <div class="card">✈️ Flight Booking</div>
+    <div class="card">🏨 Hotel Booking</div>
+    <div class="card">🧳 Tour Packages</div>
+    <div class="card">🛂 Visa Assistance</div>
+    <div class="card">🚗 Car Rentals</div>
+  </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews fade-in">
+<section class="section">
   <h2>Customer Reviews</h2>
 
-  <p>⭐⭐⭐⭐⭐ "Amazing service and smooth booking!"</p>
-  <p>⭐⭐⭐⭐⭐ "Best travel agency experience ever"</p>
-  <p>⭐⭐⭐⭐⭐ "Affordable and trusted"</p>
-
+  <div class="reviews">
+    <div class="review">⭐⭐⭐⭐⭐ Amazing service and smooth booking!</div>
+    <div class="review">⭐⭐⭐⭐⭐ Best travel experience ever</div>
+    <div class="review">⭐⭐⭐⭐⭐ Affordable and trusted</div>
+  </div>
 </section>
 
-<!-- CALL TO ACTION -->
-<section class="fade-in">
+<!-- CTA -->
+<section class="cta">
   <h2>Ready to Travel?</h2>
   <p>Book your dream trip today with D4U Travels</p>
   <a href="booking.html" class="btn">Start Booking</a>
 </section>
 
-<!-- WHATSAPP BUTTON -->
-<section class="fade-in">
+<!-- HELP -->
+<section class="section">
   <h2>Need Help?</h2>
-  <a href="mailto:dineshmrao04@gmail.com?subject=Travel Booking Inquiry&body=Hello D4U Travels, I want to book a trip." class="btn">
-📧 Book via Email
-</a>
+  <a class="btn" 
+     href="mailto:dineshmrao04@gmail.com?subject=Travel Booking Inquiry&body=Hello D4U Travels, I want to book a trip.">
+     📧 Book via Email
+  </a>
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer class="footer">
   <p>© 2026 D4U Travels | All Rights Reserved</p>
 </footer>
-
-<script src="script.js"></script>
 
 </body>
 </html>
