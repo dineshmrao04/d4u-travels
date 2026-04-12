@@ -1,4 +1,3 @@
-
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxWArCmpbhWzUNk5w4QiV1D7u52LtYyOnqKCGO4sU9dAYwRnAo9bg3-uo0q20-B6Sgc/exec";
 
@@ -31,11 +30,10 @@ if (form) {
       return;
     }
 
-    // BUTTON LOADING STATE
     btn.innerHTML = "⏳ Submitting...";
     btn.disabled = true;
 
-    // DATA COLLECT (FROM + TO INCLUDED)
+    // DATA (must match Apps Script keys)
     const data = {
       name: form.querySelector('[name="name"]')?.value || "",
       email: form.querySelector('[name="email"]')?.value || "",
@@ -47,15 +45,24 @@ if (form) {
     };
 
     try {
+      // 🔥 IMPORTANT FIX: use URLSearchParams (NOT JSON)
+      const formData = new URLSearchParams();
+
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("from", data.from);
+      formData.append("to", data.to);
+      formData.append("date", data.date);
+      formData.append("people", data.people);
+      formData.append("time", data.time);
+
       const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
+        body: formData
       });
 
-      await response.text();
+      const result = await response.text();
+      console.log("Google Sheet Response:", result);
 
       showToast("✅ Booking Submitted Successfully!", "success");
       form.reset();
@@ -109,37 +116,6 @@ function showToast(message, type = "success") {
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
-
-/* ================= SCROLL ANIMATION ================= */
-
-const fadeElements = document.querySelectorAll(".fade-in");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-
-fadeElements.forEach((el) => observer.observe(el));
-
-/* ================= SMOOTH SCROLL ================= */
-
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
 
 /* ================= MOBILE MENU ================= */
 
