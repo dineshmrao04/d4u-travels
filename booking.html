@@ -6,12 +6,10 @@
 
   <title>Booking | D4U Travels</title>
 
-  <!-- SEO -->
   <meta name="description" content="Book your trip with D4U Travels بسهولة. Fast, secure and affordable travel booking." />
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -21,7 +19,6 @@
 <header class="header">
   <div class="logo">✈️ D4U TRAVELS</div>
 
-  <!-- MOBILE MENU -->
   <div class="menu-toggle" id="menuToggle">☰</div>
 
   <nav class="nav" id="navMenu">
@@ -54,7 +51,11 @@
 
       <input type="email" name="email" placeholder="Email Address" required />
 
-      <input type="text" name="destination" placeholder="Destination (Goa, Manali, Dubai...)" required />
+      <!-- FROM -->
+      <input type="text" name="from" placeholder="From (City / Location)" required />
+
+      <!-- TO -->
+      <input type="text" name="to" placeholder="To (Destination City)" required />
 
       <input type="date" name="date" required />
 
@@ -84,11 +85,6 @@
   <h2>Need Help? 💬</h2>
   <p>Contact us anytime via email</p>
 
-  <div class="support-box">
-    <p>📧 <b>Email:</b> dineshmrao04@gmail.com</p>
-    <p>⏱ We reply within 24 hours</p>
-  </div>
-
   <a class="btn"
      href="mailto:dineshmrao04@gmail.com?subject=Booking Help&body=Hello D4U Travels, I need help with booking.">
      Email Support
@@ -111,7 +107,6 @@
   });
 </script>
 
-<!-- BOOKING SCRIPT (Google Sheets Ready) -->
 <script src="script.js"></script>
 
 </body>
