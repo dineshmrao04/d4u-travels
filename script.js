@@ -1,106 +1,140 @@
 // ================= FORM SUBMIT (GOOGLE SHEET CONNECTED) =================
-const form = document.getElementById('bookingForm');
+const form = document.getElementById("bookingForm");
 
-if(form){
-  form.addEventListener('submit', function(e){
+if (form) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const inputs = form.querySelectorAll('input');
-    let valid = true;
+    const inputs = form.querySelectorAll("input");
+    let isValid = true;
 
-    inputs.forEach(input => {
-      if(input.value.trim() === ''){
-        input.style.border = "2px solid red";
-        valid = false;
+    // Validate inputs
+    inputs.forEach((input) => {
+      if (!input.value.trim()) {
+        input.classList.add("input-error");
+        isValid = false;
       } else {
-        input.style.border = "1px solid #ccc";
+        input.classList.remove("input-error");
       }
     });
 
-    if(!valid){
-      showMessage("❌ Please fill all fields", "error");
+    if (!isValid) {
+      showToast("❌ Please fill all fields correctly", "error");
       return;
     }
 
-    const btn = form.querySelector('button');
-    btn.innerHTML = "Submitting...";
+    const btn = form.querySelector("button");
+    const originalText = btn.innerHTML;
+
+    btn.innerHTML = "⏳ Submitting...";
     btn.disabled = true;
 
-    // GET DATA
+    // Safer data collection (NO placeholders dependency)
     const data = {
-      name: form.querySelector('input[placeholder="Full Name"]').value,
-      phone: form.querySelector('input[placeholder="Phone Number"]').value,
-      email: form.querySelector('input[placeholder="Email Address"]').value,
-      destination: form.querySelector('input[placeholder="Destination (Goa, Manali, Dubai...)"]').value,
-      date: form.querySelector('input[type="date"]').value,
-      people: form.querySelector('input[placeholder="Number of People"]').value
+      name: form.elements[0].value,
+      phone: form.elements[1].value,
+      email: form.elements[2].value,
+      destination: form.elements[3].value,
+      date: form.elements[4].value,
+      people: form.elements[5].value,
+      time: new Date().toISOString()
     };
 
-    // 🔥 REPLACE THIS WITH YOUR REAL WEB APP URL
-    fetch("https://script.google.com/macros/s/AKfycby7ZCPueHHUWBmbGvJqNoeKeGebPFVOlg8k055tlWFvhSZ4CdKIu45talHJbCKLzZwd/exec", {
-      method: "POST",
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => {
-      showMessage("✅ Booking Saved Successfully!", "success");
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycby7ZCPueHHUWBmbGvJqNoeKeGebPFVOlg8k055tlWFvhSZ4CdKIu45talHJbCKLzZwd/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+
+      await response.text();
+
+      showToast("✅ Booking Submitted Successfully!", "success");
       form.reset();
-    })
-    .catch(err => {
-      showMessage("❌ Failed! Check Web App URL", "error");
-    })
-    .finally(() => {
-      btn.innerHTML = "🚀 Submit Booking";
+
+    } catch (error) {
+      showToast("❌ Submission Failed! Try Again", "error");
+      console.error(error);
+    } finally {
+      btn.innerHTML = originalText;
       btn.disabled = false;
-    });
-  });
-}
-
-// ================= MESSAGE FUNCTION =================
-function showMessage(text, type){
-  let msg = document.createElement('div');
-  msg.innerText = text;
-
-  msg.style.position = "fixed";
-  msg.style.top = "20px";
-  msg.style.left = "50%";
-  msg.style.transform = "translateX(-50%)";
-  msg.style.padding = "12px 20px";
-  msg.style.borderRadius = "10px";
-  msg.style.color = "white";
-  msg.style.zIndex = "1000";
-  msg.style.fontWeight = "bold";
-
-  msg.style.background = (type === "success") ? "green" : "red";
-
-  document.body.appendChild(msg);
-
-  setTimeout(() => msg.remove(), 3000);
-}
-
-// ================= SCROLL ANIMATION =================
-const elements = document.querySelectorAll('.fade-in');
-
-function reveal(){
-  elements.forEach(el => {
-    const position = el.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.2;
-
-    if(position < screenPosition){
-      el.classList.add('show');
     }
   });
 }
 
-window.addEventListener('scroll', reveal);
-window.addEventListener('load', reveal);
+// ================= MODERN TOAST MESSAGE =================
+function showToast(message, type = "success") {
+  const toast = document.createElement("div");
+
+  toast.innerText = message;
+
+  Object.assign(toast.style, {
+    position: "fixed",
+    top: "20px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    padding: "14px 22px",
+    borderRadius: "12px",
+    fontWeight: "600",
+    fontSize: "14px",
+    color: "#fff",
+    background: type === "success" ? "#22c55e" : "#ef4444",
+    boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+    zIndex: "9999",
+    opacity: "0",
+    transition: "all 0.3s ease"
+  });
+
+  document.body.appendChild(toast);
+
+  // animate in
+  setTimeout(() => {
+    toast.style.opacity = "1";
+    toast.style.top = "30px";
+  }, 50);
+
+  // remove
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.top = "10px";
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// ================= SCROLL ANIMATION (OPTIMIZED) =================
+const fadeElements = document.querySelectorAll(".fade-in");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.15
+  }
+);
+
+fadeElements.forEach((el) => observer.observe(el));
 
 // ================= SMOOTH SCROLL =================
-document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e){
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
   });
 });
