@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>About Us | D4U Travels</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Learn about D4U Travels – your trusted partner for affordable and memorable trips." />
 
   <link rel="stylesheet" href="style.css" />
 
@@ -17,16 +21,19 @@
 <header class="header">
   <div class="logo">✈️ D4U TRAVELS</div>
 
-  <nav class="nav">
+  <!-- MOBILE MENU -->
+  <div class="menu-toggle" id="menuToggle">☰</div>
+
+  <nav class="nav" id="navMenu">
     <a href="index.html">Home</a>
     <a href="packages.html">Packages</a>
     <a href="booking.html">Booking</a>
-    <a href="about.html">About</a>
+    <a href="about.html" class="active">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<!-- HERO ABOUT -->
+<!-- HERO -->
 <section class="hero small-hero">
   <div class="hero-content">
     <h1>About D4U Travels 🌍</h1>
@@ -34,7 +41,7 @@
   </div>
 </section>
 
-<!-- ABOUT DESCRIPTION -->
+<!-- ABOUT -->
 <section class="section">
   <div class="text-box">
     <p>
@@ -51,7 +58,7 @@
   <div class="grid">
     <div class="card">✅ Affordable Tour Packages</div>
     <div class="card">✅ Trusted & Reliable Service</div>
-    <div class="card">✅ 24/7 Customer Support</div>
+    <div class="card">✅ Easy Booking Process</div>
     <div class="card">✅ Best Travel Deals</div>
   </div>
 </section>
@@ -87,17 +94,39 @@
   </p>
 </section>
 
-<!-- CALL TO ACTION -->
+<!-- CTA -->
 <section class="section">
   <h2>Start Your Journey Today ✈️</h2>
   <p>Book your next trip with D4U Travels and explore the world with confidence.</p>
-  <a href="booking.html" class="btn">Book Now</a>
+  <a href="booking.html" class="btn primary">Book Now</a>
+</section>
+
+<!-- EMAIL CONTACT ONLY -->
+<section class="section">
+  <h2>Need Help?</h2>
+  <p>Reach out to us via email anytime</p>
+
+  <a class="btn"
+     href="mailto:dineshmrao04@gmail.com?subject=About Inquiry&body=Hello D4U Travels, I want to know more about your services.">
+     📧 Email Us
+  </a>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   <p>© 2026 D4U Travels | All Rights Reserved</p>
+  <p>Email: <a href="mailto:dineshmrao04@gmail.com">dineshmrao04@gmail.com</a></p>
 </footer>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("navMenu");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+</script>
 
 </body>
 </html>
