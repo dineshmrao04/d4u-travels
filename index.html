@@ -21,17 +21,19 @@ color:white;
 overflow-x:hidden;
 }
 
-/* HEADER */
+/* ================= HEADER (IMPROVED) ================= */
 header{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:12px 5vw;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(12px);
+padding:14px 6vw;
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,0.08);
 z-index:1000;
 }
 
@@ -47,16 +49,18 @@ text-decoration:none;
 color:white;
 }
 
-.logo img{height:38px}
+.logo img{
+height:40px;
+}
 
 nav{
 display:flex;
-gap:22px;
+gap:25px;
 }
 
 nav a{
-color:white;
 text-decoration:none;
+color:white;
 font-size:15px;
 transition:0.3s;
 }
@@ -65,75 +69,78 @@ nav a:hover{
 color:#00d4ff;
 }
 
-/* HERO (SHORT + WIDE LOOK) */
+/* MOBILE MENU */
+.menu-btn{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* ================= HERO (BALANCED HEIGHT) ================= */
 .hero{
 width:100%;
-min-height:80vh;
-background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+min-height:75vh; /* reduced height for better balance */
 display:flex;
 align-items:center;
 justify-content:center;
-padding:100px 5vw 40px;
+background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+padding:100px 6vw 40px;
 }
 
 .hero-box{
 width:100%;
 max-width:1200px;
-display:flex;
-flex-direction:column;
-align-items:center;
 text-align:center;
 background:rgba(0,0,0,0.35);
 backdrop-filter:blur(18px);
-padding:40px 25px;
+padding:40px 30px;
 border-radius:25px;
 }
 
 .hero h1{
-font-size:clamp(28px,4vw,60px);
+font-size:clamp(30px,4vw,60px);
 }
 
 .hero p{
 margin:10px 0 20px;
-font-size:clamp(14px,1.5vw,18px);
 color:#ddd;
 }
 
 /* BUTTON */
 .btn{
+display:inline-block;
 padding:12px 28px;
 border-radius:12px;
 background:#00d4ff;
 color:black;
 font-weight:600;
 text-decoration:none;
-box-shadow:0 0 18px #00d4ff;
 transition:0.3s;
+box-shadow:0 0 18px #00d4ff;
 }
 
 .btn:hover{
-transform:scale(1.05);
 background:#00ffa6;
+transform:scale(1.05);
 }
 
-/* SECTION (LESS HEIGHT = MORE WIDTH FEEL) */
+/* ================= SECTIONS (LESS HEIGHT, MORE WIDTH FEEL) ================= */
 .section{
 width:100%;
-padding:60px 5vw;
+padding:60px 6vw; /* reduced height */
 text-align:center;
 }
 
 .section h2{
-font-size:clamp(22px,3vw,36px);
+font-size:clamp(22px,3vw,34px);
 margin-bottom:25px;
 }
 
-/* GRID WIDER LOOK */
+/* GRID WIDE LOOK */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
 gap:20px;
-width:100%;
 }
 
 /* CARD */
@@ -159,27 +166,32 @@ border-radius:12px;
 /* FEATURES */
 .features{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:18px;
 }
 
-.feature-box{
-background:rgba(255,255,255,0.06);
-padding:25px;
-border-radius:18px;
-}
-
-/* EMAIL */
+/* ================= EMAIL BUTTON (IMPROVED FAB STYLE) ================= */
 .email-btn{
 position:fixed;
-bottom:20px;
-right:20px;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
 background:#00d4ff;
 color:black;
-padding:14px;
 border-radius:50%;
+font-size:22px;
 text-decoration:none;
-font-size:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.email-btn:hover{
+background:#00ffa6;
+transform:scale(1.1);
 }
 
 /* FOOTER */
@@ -189,16 +201,16 @@ text-align:center;
 background:#050814;
 }
 
-/* MOBILE FIX */
+/* ================= MOBILE ================= */
 @media(max-width:768px){
 
 nav{
 display:none;
 position:absolute;
-top:60px;
-right:5vw;
-background:black;
+top:65px;
+right:6vw;
 flex-direction:column;
+background:black;
 padding:15px;
 border-radius:10px;
 }
@@ -209,17 +221,12 @@ display:flex;
 
 .menu-btn{
 display:block;
-font-size:28px;
-cursor:pointer;
+}
 }
 
-.hero{
-min-height:65vh;
-}
-
-.hero-box{
-padding:25px;
-}
+/* SCROLL FIX */
+html{
+scroll-behavior:smooth;
 }
 </style>
 </head>
@@ -247,7 +254,7 @@ padding:25px;
 <div class="hero-box">
 <h1>Explore The World ✈️</h1>
 <p>Best Deals | Trusted Service | Easy Booking</p>
-<a href="#" class="btn">Start Booking</a>
+<a href="booking.html" class="btn">Start Booking</a>
 </div>
 </section>
 
@@ -265,8 +272,8 @@ padding:25px;
 <section class="section">
 <h2>💎 Premium Packages</h2>
 <div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"><h3>Maldives</h3><p>₹75,000</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b"><h3>Europe</h3><p>₹1,20,000</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"><h3>Maldives</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b"><h3>Europe</h3></div>
 </div>
 </section>
 
@@ -274,9 +281,9 @@ padding:25px;
 <section class="section">
 <h2>⭐ Why Choose Us</h2>
 <div class="features">
-<div class="feature-box">💰 Best Price</div>
-<div class="feature-box">⚡ Fast Booking</div>
-<div class="feature-box">🌍 Global Tours</div>
+<div>💰 Best Price</div>
+<div>⚡ Fast Booking</div>
+<div>🌍 Global Tours</div>
 </div>
 </section>
 
@@ -284,6 +291,7 @@ padding:25px;
 <p>© 2026 D4U Travels</p>
 </footer>
 
+<!-- EMAIL BUTTON -->
 <a class="email-btn" href="mailto:dineshmrao04@gmail.com">📧</a>
 
 </body>
