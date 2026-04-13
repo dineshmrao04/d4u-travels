@@ -1,132 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | D4U Travels</title>
 
-  <title>About Us | D4U Travels</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- SEO -->
-  <meta name="description" content="Learn about D4U Travels – your trusted partner for affordable and memorable trips." />
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-  <link rel="stylesheet" href="style.css" />
+body{
+background:linear-gradient(135deg,#0b1220,#02050d);
+color:white;
+}
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none;
+color:white;
+}
+
+.logo img{height:40px}
+
+/* HOME BUTTON */
+.home-btn{
+text-decoration:none;
+padding:8px 18px;
+border-radius:20px;
+background:rgba(0,212,255,0.15);
+border:1px solid #00d4ff;
+color:#00d4ff;
+transition:0.3s;
+}
+
+.home-btn:hover{
+background:#00d4ff;
+color:black;
+box-shadow:0 0 15px #00d4ff;
+}
+
+/* SECTION */
+.section{
+padding:80px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:36px;
+margin-bottom:20px;
+}
+
+.section p{
+max-width:700px;
+margin:10px auto;
+color:#bbb;
+}
+
+/* STATS */
+.stats{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.stat{
+background:rgba(255,255,255,0.06);
+padding:25px 35px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+}
+
+.stat:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 20px #00d4ff;
+}
+
+.stat h3{
+color:#00d4ff;
+font-size:32px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.06);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,#00d4ff33,transparent);
+top:-100%;
+left:0;
+transition:0.5s;
+}
+
+.card:hover::before{
+top:100%;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,212,255,0.5);
+}
+
+.icon{
+font-size:42px;
+margin-bottom:10px;
+}
+
+/* TEAM */
+.team{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.member{
+background:rgba(255,255,255,0.06);
+padding:25px;
+border-radius:20px;
+text-align:center;
+width:260px;
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+position:relative;
+}
+
+.member:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 25px #00d4ff;
+}
+
+.member img{
+width:110px;
+height:110px;
+border-radius:50%;
+margin-bottom:10px;
+border:3px solid #00d4ff;
+}
+
+/* CONTACT BOX */
+.contact-box{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.1);
+display:inline-block;
+margin-top:20px;
+}
+
+/* FOOTER */
+footer{
+padding:30px;
+text-align:center;
+background:#050814;
+margin-top:40px;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="logo">✈️ D4U TRAVELS</div>
+<header>
+<a href="index.html" class="logo">
+<img src="./D4U.png">
+<span>D4U TRAVELS</span>
+</a>
 
-  <!-- MOBILE MENU -->
-  <div class="menu-toggle" id="menuToggle">☰</div>
-
-  <nav class="nav" id="navMenu">
-    <a href="index.html">Home</a>
-    <a href="packages.html">Packages</a>
-    <a href="booking.html">Booking</a>
-    <a href="about.html" class="active">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<a href="index.html" class="home-btn">← Home</a>
 </header>
-
-<!-- HERO -->
-<section class="hero small-hero">
-  <div class="hero-content">
-    <h1>About D4U Travels 🌍</h1>
-    <p>Your trusted partner for unforgettable journeys</p>
-  </div>
-</section>
 
 <!-- ABOUT -->
 <section class="section">
-  <div class="text-box">
-    <p>
-      D4U Travels is a trusted travel agency dedicated to providing the best travel experiences at affordable prices.
-      We help customers explore amazing destinations with comfort, safety, and convenience.
-    </p>
-  </div>
-</section>
+<h2>About D4U Travels</h2>
+<p>D4U Travels is your trusted partner for unforgettable journeys across the world. We provide affordable, reliable, and premium travel experiences tailored just for you.</p>
 
-<!-- WHY CHOOSE US -->
-<section class="section dark">
-  <h2>Why Choose Us?</h2>
-
-  <div class="grid">
-    <div class="card">✅ Affordable Tour Packages</div>
-    <div class="card">✅ Trusted & Reliable Service</div>
-    <div class="card">✅ Easy Booking Process</div>
-    <div class="card">✅ Best Travel Deals</div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="section">
-  <h2>Our Achievements</h2>
-
-  <div class="grid">
-    <div class="card stat">
-      <h3>500+</h3>
-      <p>Happy Customers</p>
-    </div>
-
-    <div class="card stat">
-      <h3>100+</h3>
-      <p>Tour Packages</p>
-    </div>
-
-    <div class="card stat">
-      <h3>5★</h3>
-      <p>Customer Rating</p>
-    </div>
-  </div>
+<div class="stats">
+<div class="stat"><h3>500+</h3><p>Happy Customers</p></div>
+<div class="stat"><h3>120+</h3><p>Destinations</p></div>
+<div class="stat"><h3>5+</h3><p>Years Experience</p></div>
+</div>
 </section>
 
 <!-- MISSION -->
-<section class="cta">
-  <h2>Our Mission 🎯</h2>
-  <p>
-    Our mission is to make travel easy, affordable, and enjoyable for everyone.
-    We aim to provide unforgettable travel experiences with world-class service.
-  </p>
-</section>
-
-<!-- CTA -->
 <section class="section">
-  <h2>Start Your Journey Today ✈️</h2>
-  <p>Book your next trip with D4U Travels and explore the world with confidence.</p>
-  <a href="booking.html" class="btn primary">Book Now</a>
+<h2>Our Mission & Vision</h2>
+
+<div class="grid">
+<div class="card">
+<div class="icon">🎯</div>
+<h3>Mission</h3>
+<p>To make travel easy, affordable, and accessible for everyone.</p>
+</div>
+
+<div class="card">
+<div class="icon">🌍</div>
+<h3>Vision</h3>
+<p>To become a global leader in travel services.</p>
+</div>
+
+<div class="card">
+<div class="icon">💼</div>
+<h3>Values</h3>
+<p>Trust, quality service, and customer satisfaction.</p>
+</div>
+</div>
 </section>
 
-<!-- EMAIL CONTACT ONLY -->
+<!-- WHY US -->
 <section class="section">
-  <h2>Need Help?</h2>
-  <p>Reach out to us via email anytime</p>
+<h2>Why Choose Us</h2>
 
-  <a class="btn"
-     href="mailto:dineshmrao04@gmail.com?subject=About Inquiry&body=Hello D4U Travels, I want to know more about your services.">
-     📧 Email Us
-  </a>
+<div class="grid">
+<div class="card"><div class="icon">💰</div><h3>Best Prices</h3></div>
+<div class="card"><div class="icon">⚡</div><h3>Fast Booking</h3></div>
+<div class="card"><div class="icon">📞</div><h3>24/7 Support</h3></div>
+<div class="card"><div class="icon">🌐</div><h3>Worldwide Tours</h3></div>
+</div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <p>© 2026 D4U Travels | All Rights Reserved</p>
-  <p>Email: <a href="mailto:dineshmrao04@gmail.com">dineshmrao04@gmail.com</a></p>
+<!-- TEAM -->
+<section class="section">
+<h2>Meet Our Team</h2>
+
+<div class="team">
+<div class="member">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<h3>Dinesh</h3>
+<p>Founder</p>
+</div>
+
+<div class="member">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<h3>Priya</h3>
+<p>Travel Expert</p>
+</div>
+
+<div class="member">
+<img src="https://randomuser.me/api/portraits/men/50.jpg">
+<h3>Rahul</h3>
+<p>Support Head</p>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+<h2>📩 Contact Us</h2>
+
+<div class="contact-box">
+<p>Email: dineshmrao04@gmail.com</p>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 D4U Travels | All Rights Reserved</p>
 </footer>
-
-<!-- MOBILE MENU SCRIPT -->
-<script>
-  const toggle = document.getElementById("menuToggle");
-  const nav = document.getElementById("navMenu");
-
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
-</script>
 
 </body>
 </html>
