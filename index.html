@@ -21,20 +21,18 @@ color:white;
 overflow-x:hidden;
 }
 
-/* HEADER FULL WIDTH */
+/* HEADER */
 header{
 position:fixed;
 top:0;
-left:0;
 width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 5vw;
+padding:12px 5vw;
 background:rgba(0,0,0,0.5);
 backdrop-filter:blur(12px);
 z-index:1000;
-transition:0.3s;
 }
 
 header.scrolled{
@@ -49,19 +47,17 @@ text-decoration:none;
 color:white;
 }
 
-.logo img{height:45px}
+.logo img{height:38px}
 
-/* NAV */
 nav{
 display:flex;
-align-items:center;
-gap:25px;
+gap:22px;
 }
 
 nav a{
-text-decoration:none;
 color:white;
-font-size:16px;
+text-decoration:none;
+font-size:15px;
 transition:0.3s;
 }
 
@@ -69,167 +65,142 @@ nav a:hover{
 color:#00d4ff;
 }
 
-/* HERO FULL WIDTH */
+/* HERO (SHORT + WIDE LOOK) */
 .hero{
 width:100%;
-min-height:100vh;
+min-height:80vh;
 background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
-text-align:center;
-position:relative;
-padding:120px 5vw 60px;
+padding:100px 5vw 40px;
 }
 
 .hero-box{
-width:90%;
-max-width:1100px;
+width:100%;
+max-width:1200px;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 background:rgba(0,0,0,0.35);
-backdrop-filter:blur(20px);
-padding:70px 40px;
-border-radius:30px;
-box-shadow:0 0 60px rgba(0,0,0,0.5);
-animation:fadeIn 1.5s ease;
+backdrop-filter:blur(18px);
+padding:40px 25px;
+border-radius:25px;
 }
 
 .hero h1{
-font-size:clamp(34px,5vw,70px);
+font-size:clamp(28px,4vw,60px);
 }
 
 .hero p{
-margin:15px 0 30px;
-font-size:clamp(14px,2vw,20px);
+margin:10px 0 20px;
+font-size:clamp(14px,1.5vw,18px);
 color:#ddd;
 }
 
 /* BUTTON */
 .btn{
-display:inline-block;
-padding:14px 32px;
-border-radius:14px;
+padding:12px 28px;
+border-radius:12px;
 background:#00d4ff;
 color:black;
 font-weight:600;
 text-decoration:none;
+box-shadow:0 0 18px #00d4ff;
 transition:0.3s;
-box-shadow:0 0 20px #00d4ff;
 }
 
 .btn:hover{
+transform:scale(1.05);
 background:#00ffa6;
-transform:scale(1.08);
-box-shadow:0 0 30px #00ffa6;
 }
 
-/* SECTION FULL WIDTH */
+/* SECTION (LESS HEIGHT = MORE WIDTH FEEL) */
 .section{
 width:100%;
-padding:100px 5vw;
+padding:60px 5vw;
 text-align:center;
 }
 
 .section h2{
-font-size:clamp(26px,3vw,40px);
-margin-bottom:40px;
+font-size:clamp(22px,3vw,36px);
+margin-bottom:25px;
 }
 
-/* GRID WIDER */
+/* GRID WIDER LOOK */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 width:100%;
 }
 
-/* CARD BIGGER */
+/* CARD */
 .card{
 background:rgba(255,255,255,0.06);
-backdrop-filter:blur(18px);
-border-radius:22px;
-padding:18px;
+backdrop-filter:blur(15px);
+border-radius:18px;
+padding:14px;
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-12px) scale(1.03);
-box-shadow:0 25px 50px rgba(0,0,0,0.7);
+transform:translateY(-8px);
 }
 
 .card img{
 width:100%;
-height:220px;
+height:180px;
 object-fit:cover;
-border-radius:14px;
+border-radius:12px;
 }
 
-/* FEATURES WIDER */
+/* FEATURES */
 .features{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:18px;
 }
 
 .feature-box{
 background:rgba(255,255,255,0.06);
-backdrop-filter:blur(18px);
-padding:35px;
-border-radius:22px;
-transition:0.3s;
-font-size:18px;
-}
-
-.feature-box:hover{
-transform:translateY(-10px);
-}
-
-/* REVEAL */
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
+padding:25px;
+border-radius:18px;
 }
 
 /* EMAIL */
 .email-btn{
 position:fixed;
-bottom:25px;
-right:25px;
+bottom:20px;
+right:20px;
 background:#00d4ff;
 color:black;
-padding:16px;
+padding:14px;
 border-radius:50%;
-font-size:22px;
 text-decoration:none;
-box-shadow:0 0 20px rgba(0,0,0,0.5);
+font-size:20px;
 }
 
-/* FOOTER FULL WIDTH */
+/* FOOTER */
 footer{
-width:100%;
-padding:35px 5vw;
+padding:25px;
 text-align:center;
 background:#050814;
-margin-top:50px;
 }
 
-/* MOBILE */
+/* MOBILE FIX */
 @media(max-width:768px){
 
 nav{
 display:none;
 position:absolute;
-top:70px;
+top:60px;
 right:5vw;
+background:black;
 flex-direction:column;
-background:#000;
 padding:15px;
-border-radius:12px;
+border-radius:10px;
 }
 
 nav.active{
@@ -242,37 +213,33 @@ font-size:28px;
 cursor:pointer;
 }
 
-.hero-box{
-padding:40px 20px;
-}
+.hero{
+min-height:65vh;
 }
 
-/* ANIMATION */
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
+.hero-box{
+padding:25px;
+}
 }
 </style>
 </head>
 
 <body>
 
-<header id="header">
-
-<a href="#" class="logo">
+<header>
+<a class="logo">
 <img src="./D4U.png">
 <span>D4U TRAVELS</span>
 </a>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="menu-btn" onclick="document.getElementById('nav').classList.toggle('active')">☰</div>
 
 <nav id="nav">
-<a href="#">Home</a>
-<a href="#">Packages</a>
-<a href="#">Booking</a>
-<a href="#">About</a>
+<a href="index.html">Home</a>
+<a href="packages.html">Packages</a>
+<a href="booking.html">Booking</a>
+<a href="about.html">About</a>
 </nav>
-
 </header>
 
 <!-- HERO -->
@@ -285,7 +252,7 @@ to{opacity:1;transform:translateY(0)}
 </section>
 
 <!-- DESTINATIONS -->
-<section class="section reveal">
+<section class="section">
 <h2>🌍 Popular Destinations</h2>
 <div class="grid">
 <div class="card"><img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2"><h3>Goa</h3></div>
@@ -295,7 +262,7 @@ to{opacity:1;transform:translateY(0)}
 </section>
 
 <!-- PACKAGES -->
-<section class="section reveal">
+<section class="section">
 <h2>💎 Premium Packages</h2>
 <div class="grid">
 <div class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"><h3>Maldives</h3><p>₹75,000</p></div>
@@ -304,7 +271,7 @@ to{opacity:1;transform:translateY(0)}
 </section>
 
 <!-- FEATURES -->
-<section class="section reveal">
+<section class="section">
 <h2>⭐ Why Choose Us</h2>
 <div class="features">
 <div class="feature-box">💰 Best Price</div>
@@ -317,26 +284,7 @@ to{opacity:1;transform:translateY(0)}
 <p>© 2026 D4U Travels</p>
 </footer>
 
-<a href="mailto:dineshmrao04@gmail.com?subject=Travel Booking Inquiry&body=Hello, I want to book a trip." class="email-btn">📧</a>
-
-<script>
-function toggleMenu(){
-document.getElementById("nav").classList.toggle("active");
-}
-
-window.addEventListener("scroll",function(){
-document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);
-});
-
-window.addEventListener("scroll",function(){
-document.querySelectorAll(".reveal").forEach(el=>{
-let top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-el.classList.add("active");
-}
-});
-});
-</script>
+<a class="email-btn" href="mailto:dineshmrao04@gmail.com">📧</a>
 
 </body>
 </html>
