@@ -57,28 +57,28 @@ nav a:hover{
 color:#00d4ff;
 }
 
-/* HERO */
+/* HERO (NO DIM LIGHT) */
 .hero{
 height:100vh;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+position:relative;
 }
 
 .hero-box{
-background:rgba(255,255,255,0.05);
+background:rgba(0,0,0,0.35);
 backdrop-filter:blur(20px);
 padding:50px;
 border-radius:25px;
-box-shadow:0 0 40px rgba(0,0,0,0.6);
+box-shadow:0 0 40px rgba(0,0,0,0.4);
 animation:fadeIn 1.5s ease;
 }
 
 .hero h1{font-size:60px}
-.hero p{margin:15px 0 25px;color:#ccc}
+.hero p{margin:15px 0 25px;color:#eee}
 
 /* BUTTON */
 .btn{
@@ -226,7 +226,7 @@ to{opacity:1;transform:translateY(0)}
 </nav>
 </header>
 
-<!-- HERO -->
+<!-- HERO (NO DIM EFFECT) -->
 <section class="hero">
 <div class="hero-box">
 <h1>Explore The World ✈️</h1>
@@ -272,12 +272,10 @@ to{opacity:1;transform:translateY(0)}
 <a href="mailto:dineshmrao04@gmail.com?subject=Travel Booking Inquiry&body=Hello, I want to book a trip." class="email-btn">📧</a>
 
 <script>
-// navbar scroll
 window.addEventListener("scroll",function(){
 document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);
 });
 
-// reveal
 window.addEventListener("scroll",function(){
 document.querySelectorAll(".reveal").forEach(el=>{
 let top=el.getBoundingClientRect().top;
