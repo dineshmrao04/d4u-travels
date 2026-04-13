@@ -8,7 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
 body{
 background:linear-gradient(135deg,#0b1220,#050814);
@@ -24,7 +29,7 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 30px;
+padding:15px 25px;
 background:rgba(0,0,0,0.5);
 backdrop-filter:blur(12px);
 z-index:1000;
@@ -43,47 +48,71 @@ text-decoration:none;
 color:white;
 }
 
-.logo img{height:45px}
+.logo img{height:40px}
 
 /* NAV */
+nav{
+display:flex;
+align-items:center;
+}
+
 nav a{
-margin:0 15px;
+margin:0 12px;
 text-decoration:none;
 color:white;
 transition:.3s;
+font-size:15px;
 }
 
 nav a:hover{
 color:#00d4ff;
 }
 
-/* HERO (NO DIM LIGHT) */
+/* HAMBURGER */
+.menu-btn{
+display:none;
+font-size:28px;
+cursor:pointer;
+color:white;
+}
+
+/* HERO */
 .hero{
-height:100vh;
-background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+min-height:100vh;
+background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+padding:100px 20px 40px;
 position:relative;
 }
 
 .hero-box{
 background:rgba(0,0,0,0.35);
 backdrop-filter:blur(20px);
-padding:50px;
+padding:clamp(20px,5vw,50px);
 border-radius:25px;
 box-shadow:0 0 40px rgba(0,0,0,0.4);
 animation:fadeIn 1.5s ease;
+max-width:700px;
+width:100%;
 }
 
-.hero h1{font-size:60px}
-.hero p{margin:15px 0 25px;color:#eee}
+.hero h1{
+font-size:clamp(28px,5vw,60px);
+}
+
+.hero p{
+margin:15px 0 25px;
+color:#eee;
+font-size:clamp(14px,2vw,18px);
+}
 
 /* BUTTON */
 .btn{
 display:inline-block;
-padding:12px 30px;
+padding:12px 25px;
 border-radius:12px;
 background:#00d4ff;
 color:black;
@@ -101,23 +130,23 @@ box-shadow:0 0 25px #00ffa6;
 
 /* SECTION */
 .section{
-padding:100px 20px;
+padding:80px 20px;
 text-align:center;
 }
 
 .section h2{
 margin-bottom:30px;
-font-size:34px;
+font-size:clamp(22px,3vw,34px);
 }
 
 /* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
-/* GLASS CARD */
+/* CARD */
 .card{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(15px);
@@ -127,7 +156,7 @@ transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-12px) scale(1.02);
+transform:translateY(-10px) scale(1.02);
 box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
@@ -141,20 +170,20 @@ border-radius:12px;
 /* FEATURES */
 .features{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:20px;
 }
 
 .feature-box{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(15px);
-padding:30px;
+padding:25px;
 border-radius:20px;
 transition:0.3s;
 }
 
 .feature-box:hover{
-transform:translateY(-10px);
+transform:translateY(-8px);
 box-shadow:0 15px 30px rgba(0,0,0,0.6);
 }
 
@@ -192,14 +221,41 @@ transform:scale(1.1);
 
 /* FOOTER */
 footer{
-padding:30px;
+padding:25px;
 text-align:center;
 background:#050814;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-.hero h1{font-size:32px}
+
+nav{
+position:absolute;
+top:70px;
+right:0;
+background:#000;
+flex-direction:column;
+width:200px;
+display:none;
+padding:15px;
+border-radius:10px;
+}
+
+nav.active{
+display:flex;
+}
+
+nav a{
+margin:10px 0;
+}
+
+.menu-btn{
+display:block;
+}
+
+.logo span{
+font-size:14px;
+}
 }
 
 /* ANIMATION */
@@ -213,20 +269,24 @@ to{opacity:1;transform:translateY(0)}
 <body>
 
 <header id="header">
+
 <a href="#" class="logo">
 <img src="./D4U.png">
 <span>D4U TRAVELS</span>
 </a>
 
-<nav>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<nav id="nav">
 <a href="index.html">Home</a>
 <a href="packages.html">Packages</a>
 <a href="booking.html">Booking</a>
 <a href="about.html">About</a>
 </nav>
+
 </header>
 
-<!-- HERO (NO DIM EFFECT) -->
+<!-- HERO -->
 <section class="hero">
 <div class="hero-box">
 <h1>Explore The World ✈️</h1>
@@ -268,10 +328,13 @@ to{opacity:1;transform:translateY(0)}
 <p>© 2026 D4U Travels</p>
 </footer>
 
-<!-- EMAIL BUTTON -->
 <a href="mailto:dineshmrao04@gmail.com?subject=Travel Booking Inquiry&body=Hello, I want to book a trip." class="email-btn">📧</a>
 
 <script>
+function toggleMenu(){
+document.getElementById("nav").classList.toggle("active");
+}
+
 window.addEventListener("scroll",function(){
 document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);
 });
