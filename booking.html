@@ -1,113 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking | D4U Travels</title>
 
-  <title>Booking | D4U Travels</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <meta name="description" content="Book your trip with D4U Travels بسهولة. Fast, secure and affordable travel booking." />
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif
+}
 
-  <link rel="stylesheet" href="style.css" />
+body{
+background:linear-gradient(135deg,#0b1220,#02050d);
+color:white;
+min-height:100vh;
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none;
+color:white;
+}
+
+.logo img{height:40px}
+
+/* HOME BUTTON */
+.back-btn{
+text-decoration:none;
+padding:8px 18px;
+border-radius:20px;
+background:rgba(0,212,255,0.15);
+border:1px solid #00d4ff;
+color:#00d4ff;
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:#00d4ff;
+color:black;
+box-shadow:0 0 15px #00d4ff;
+}
+
+/* SECTION */
+.section{
+padding:80px 20px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* GLASS BOX */
+.booking-box{
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(25px);
+padding:40px;
+border-radius:25px;
+width:100%;
+max-width:520px;
+box-shadow:0 20px 50px rgba(0,0,0,0.7);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+/* INPUT GROUP */
+.input-group{
+margin-bottom:18px;
+}
+
+.input-group label{
+font-size:13px;
+color:#00d4ff;
+margin-bottom:6px;
+display:block;
+}
+
+/* INPUT */
+.input-group input{
+width:100%;
+padding:14px;
+border-radius:12px;
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.12);
+color:white;
+outline:none;
+transition:0.3s;
+}
+
+.input-group input:focus{
+border:1px solid #00d4ff;
+box-shadow:0 0 12px #00d4ff;
+}
+
+/* 🔥 CUSTOM DROPDOWN */
+.custom-select{
+position:relative;
+}
+
+.select-box{
+padding:14px;
+border-radius:12px;
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.12);
+cursor:pointer;
+transition:0.3s;
+}
+
+.select-box:hover{
+border:1px solid #00d4ff;
+box-shadow:0 0 10px #00d4ff;
+}
+
+.options{
+position:absolute;
+width:100%;
+background:#0f1b33;
+border-radius:12px;
+margin-top:5px;
+display:none;
+overflow:hidden;
+z-index:10;
+}
+
+.option{
+padding:12px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.option:hover{
+background:#00d4ff;
+color:black;
+}
+
+/* BUTTON */
+.btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:linear-gradient(45deg,#00d4ff,#00ffa6);
+color:black;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00d4ff;
+}
+
+/* SUCCESS */
+.success{
+margin-top:15px;
+color:#00ffae;
+text-align:center;
+display:none;
+}
+
+/* FOOTER */
+footer{
+padding:30px;
+text-align:center;
+background:#050814;
+margin-top:40px;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="logo">✈️ D4U TRAVELS</div>
+<header>
+<a href="index.html" class="logo">
+<img src="./D4U.png">
+<span>D4U TRAVELS</span>
+</a>
 
-  <div class="menu-toggle" id="menuToggle">☰</div>
-
-  <nav class="nav" id="navMenu">
-    <a href="index.html">Home</a>
-    <a href="packages.html">Packages</a>
-    <a href="booking.html" class="active">Booking</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<a href="index.html" class="back-btn">← Home</a>
 </header>
 
-<!-- HERO -->
-<section class="hero small-hero">
-  <div class="hero-content">
-    <h1>Book Your Dream Trip ✈️</h1>
-    <p>Fast • Easy • Secure Booking</p>
-  </div>
-</section>
-
-<!-- BOOKING FORM -->
 <section class="section">
-  <div class="form-container">
+<div class="booking-box">
 
-    <h2>Fill Your Details</h2>
-    <p>We will contact you via email after submission</p>
+<h2>✈️ Book Your Trip</h2>
 
-    <form id="bookingForm" class="form">
+<div class="input-group">
+<label>Name</label>
+<input id="name" placeholder="Enter your name">
+</div>
 
-      <input type="text" name="name" placeholder="Full Name" required />
+<div class="input-group">
+<label>Email</label>
+<input id="email" type="email" placeholder="Enter your email">
+</div>
 
-      <input type="email" name="email" placeholder="Email Address" required />
+<div class="input-group">
+<label>From</label>
+<input id="from" placeholder="Departure city">
+</div>
 
-      <!-- FROM -->
-      <input type="text" name="from" placeholder="From (City / Location)" required />
+<div class="input-group">
+<label>Destination</label>
+<input id="place" placeholder="Destination">
+</div>
 
-      <!-- TO -->
-      <input type="text" name="to" placeholder="To (Destination City)" required />
+<div class="input-group">
+<label>Date</label>
+<input id="date" type="date">
+</div>
 
-      <input type="date" name="date" required />
+<!-- 🔥 CUSTOM DROPDOWN -->
+<div class="input-group">
+<label>Travelers</label>
 
-      <input type="number" name="people" placeholder="Number of People" min="1" required />
+<div class="custom-select">
+<div class="select-box" onclick="toggleDropdown()">Select Travelers</div>
 
-      <button type="submit" class="btn primary">🚀 Submit Booking</button>
+<div class="options" id="options">
+<div class="option" onclick="selectOption('1 Person')">1 Person</div>
+<div class="option" onclick="selectOption('2 Persons')">2 Persons</div>
+<div class="option" onclick="selectOption('3-5 Persons')">3-5 Persons</div>
+<div class="option" onclick="selectOption('Family')">Family</div>
+</div>
+</div>
 
-    </form>
+</div>
 
-  </div>
+<button class="btn" onclick="sendData()">Confirm Booking</button>
+
+<p class="success" id="successMsg">✅ Booking Sent Successfully!</p>
+
+</div>
 </section>
 
-<!-- WHY BOOK -->
-<section class="section dark">
-  <h2>Why Book With Us?</h2>
-
-  <div class="grid">
-    <div class="card">💰 Best Price Guarantee</div>
-    <div class="card">⚡ Easy & Fast Booking</div>
-    <div class="card">🤝 Trusted Travel Partner</div>
-    <div class="card">📧 Email Support</div>
-  </div>
-</section>
-
-<!-- SUPPORT -->
-<section class="cta">
-  <h2>Need Help? 💬</h2>
-  <p>Contact us anytime via email</p>
-
-  <a class="btn"
-     href="mailto:dineshmrao04@gmail.com?subject=Booking Help&body=Hello D4U Travels, I need help with booking.">
-     Email Support
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <p>© 2026 D4U Travels | All Rights Reserved</p>
-  <p>Email: <a href="mailto:dineshmrao04@gmail.com">dineshmrao04@gmail.com</a></p>
+<footer>
+<p>📧 dineshmrao04@gmail.com</p>
+<p>© 2026 D4U Travels</p>
 </footer>
 
-<!-- MOBILE MENU SCRIPT -->
 <script>
-  const toggle = document.getElementById("menuToggle");
-  const nav = document.getElementById("navMenu");
+let selectedPerson="";
 
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
+function toggleDropdown(){
+let opt=document.getElementById("options");
+opt.style.display=opt.style.display==="block"?"none":"block";
+}
+
+function selectOption(value){
+selectedPerson=value;
+document.querySelector(".select-box").innerText=value;
+document.getElementById("options").style.display="none";
+}
+
+window.onclick=function(e){
+if(!e.target.closest('.custom-select')){
+document.getElementById("options").style.display="none";
+}
+}
+
+function sendData(){
+
+let name=document.getElementById('name').value;
+let email=document.getElementById('email').value;
+let from=document.getElementById('from').value;
+let place=document.getElementById('place').value;
+let date=document.getElementById('date').value;
+
+if(!name||!email||!from||!place||!date||!selectedPerson){
+alert('Please fill all fields');
+return;
+}
+
+fetch('YOUR_GOOGLE_SCRIPT_URL',{
+method:'POST',
+mode:'no-cors',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+name,email,from,place,date,persons:selectedPerson
+})
+});
+
+document.getElementById('successMsg').style.display='block';
+document.querySelectorAll('input').forEach(i=>i.value='');
+document.querySelector(".select-box").innerText="Select Travelers";
+}
 </script>
-
-<script src="script.js"></script>
 
 </body>
 </html>
