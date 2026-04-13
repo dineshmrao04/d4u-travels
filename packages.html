@@ -1,131 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages | D4U Travels</title>
 
-  <title>Packages | D4U Travels</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- SEO -->
-  <meta name="description" content="Explore the best travel packages with D4U Travels. Affordable trips to Goa, Manali, Dubai and more." />
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-  <link rel="stylesheet" href="style.css" />
+body{
+background:linear-gradient(135deg,#0b1220,#02050d);
+color:white;
+min-height:100vh;
+}
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+/* HEADER (same booking style) */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,0.1);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none;
+color:white;
+}
+
+.logo img{height:40px}
+
+/* HOME BUTTON */
+.back-btn{
+text-decoration:none;
+padding:8px 18px;
+border-radius:20px;
+background:rgba(0,212,255,0.15);
+border:1px solid #00d4ff;
+color:#00d4ff;
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:#00d4ff;
+color:black;
+box-shadow:0 0 15px #00d4ff;
+}
+
+/* SECTION */
+.section{
+padding:70px 20px;
+}
+
+/* TITLE */
+h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+/* SEARCH BAR */
+.search-box{
+display:flex;
+justify-content:center;
+margin-bottom:15px;
+}
+
+.search-box input{
+width:300px;
+padding:12px;
+border-radius:12px;
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.1);
+color:white;
+outline:none;
+transition:0.3s;
+}
+
+.search-box input:focus{
+border:1px solid #00d4ff;
+box-shadow:0 0 12px #00d4ff;
+}
+
+/* FILTER */
+.filter-box{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:25px;
+}
+
+.filter-box select{
+padding:12px;
+border-radius:12px;
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.1);
+color:white;
+outline:none;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:10px;
+}
+
+/* CARD (same booking glass style) */
+.card{
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(25px);
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 20px 50px rgba(0,0,0,0.7);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+/* CONTENT */
+.card-content{
+padding:15px;
+}
+
+.price{
+color:#00d4ff;
+font-weight:600;
+margin-top:5px;
+}
+
+.rating{
+color:gold;
+margin-top:5px;
+}
+
+/* BUTTON */
+.btn{
+margin-top:10px;
+display:block;
+text-align:center;
+padding:12px;
+border-radius:12px;
+background:linear-gradient(45deg,#00d4ff,#00ffa6);
+color:black;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00d4ff;
+}
+
+/* BADGE */
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:red;
+padding:5px 10px;
+border-radius:8px;
+font-size:12px;
+}
+
+/* FOOTER */
+footer{
+padding:30px;
+text-align:center;
+background:#050814;
+margin-top:40px;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="logo">✈️ D4U TRAVELS</div>
+<header>
+<a href="index.html" class="logo">
+<img src="./D4U.png">
+<span>D4U TRAVELS</span>
+</a>
 
-  <!-- MOBILE MENU -->
-  <div class="menu-toggle" id="menuToggle">☰</div>
-
-  <nav class="nav" id="navMenu">
-    <a href="index.html">Home</a>
-    <a href="packages.html" class="active">Packages</a>
-    <a href="booking.html">Booking</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<a href="index.html" class="back-btn">← Home</a>
 </header>
 
-<!-- HERO -->
-<section class="hero small-hero">
-  <div class="hero-content">
-    <h1>🌍 Our Tour Packages</h1>
-    <p>Choose your dream destination and travel with us</p>
-  </div>
-</section>
-
-<!-- PACKAGES -->
 <section class="section">
-  <h2>Top Travel Deals ✨</h2>
 
-  <div class="grid">
+<h2>🌍 Explore Tour Packages</h2>
 
-    <!-- GOA -->
-    <div class="card package-card">
-      <img src="https://picsum.photos/400/250?beach" alt="Goa">
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="search" placeholder="Search destination..." onkeyup="filterData()">
+</div>
 
-      <h3>Goa Package</h3>
-      <p>3 Days / 2 Nights</p>
-      <p>Hotel + Food + Travel</p>
+<!-- FILTER -->
+<div class="filter-box">
+<select id="priceFilter" onchange="filterData()">
+<option value="all">All Prices</option>
+<option value="low">Low</option>
+<option value="mid">Medium</option>
+<option value="high">Luxury</option>
+</select>
+</div>
 
-      <span class="price">₹4,999</span>
+<!-- GRID -->
+<div class="grid">
 
-      <a href="booking.html" class="btn primary">Book Now</a>
-    </div>
+<!-- CARD 1 -->
+<div class="card" data-name="goa" data-price="low">
+<div class="badge">Popular</div>
+<img src="https://source.unsplash.com/400x300/?goa,beach">
+<div class="card-content">
+<h3>Goa</h3>
+<p class="price">₹4,999</p>
+<div class="rating">★★★★★</div>
+<a href="booking.html" class="btn">Book Now</a>
+</div>
+</div>
 
-    <!-- MANALI -->
-    <div class="card package-card">
-      <img src="https://picsum.photos/400/250?mountain" alt="Manali">
+<!-- CARD 2 -->
+<div class="card" data-name="manali" data-price="low">
+<img src="https://source.unsplash.com/400x300/?manali,mountains">
+<div class="card-content">
+<h3>Manali</h3>
+<p class="price">₹6,999</p>
+<div class="rating">★★★★☆</div>
+<a href="booking.html" class="btn">Book Now</a>
+</div>
+</div>
 
-      <h3>Manali Package</h3>
-      <p>5 Days / 4 Nights</p>
-      <p>Hotel + Food</p>
+<!-- CARD 3 -->
+<div class="card" data-name="dubai" data-price="mid">
+<div class="badge">Hot Deal</div>
+<img src="https://source.unsplash.com/400x300/?dubai,city">
+<div class="card-content">
+<h3>Dubai</h3>
+<p class="price">₹45,999</p>
+<div class="rating">★★★★★</div>
+<a href="booking.html" class="btn">Book Now</a>
+</div>
+</div>
 
-      <span class="price">₹6,999</span>
+<!-- CARD 4 -->
+<div class="card" data-name="europe" data-price="high">
+<img src="https://source.unsplash.com/400x300/?europe">
+<div class="card-content">
+<h3>Europe</h3>
+<p class="price">₹1,20,000</p>
+<div class="rating">★★★★★</div>
+<a href="booking.html" class="btn">Book Now</a>
+</div>
+</div>
 
-      <a href="booking.html" class="btn primary">Book Now</a>
-    </div>
-
-    <!-- DUBAI -->
-    <div class="card package-card">
-      <img src="https://picsum.photos/400/250?city" alt="Dubai">
-
-      <h3>Dubai Package</h3>
-      <p>4 Days / 3 Nights</p>
-      <p>Flight + Hotel + Visa</p>
-
-      <span class="price">₹29,999</span>
-
-      <a href="booking.html" class="btn primary">Book Now</a>
-    </div>
-
-  </div>
+</div>
 </section>
 
-<!-- WHY CHOOSE -->
-<section class="section dark">
-  <h2>Why Choose Our Packages?</h2>
-
-  <div class="grid">
-    <div class="card">💰 Affordable Pricing</div>
-    <div class="card">🏨 Premium Hotels</div>
-    <div class="card">⚡ Easy Booking</div>
-    <div class="card">🤝 Trusted Service</div>
-  </div>
-</section>
-
-<!-- EMAIL HELP CTA -->
-<section class="cta">
-  <h2>Confused Which Package to Choose? 🤔</h2>
-  <p>We’ll help you plan the perfect trip</p>
-
-  <a class="btn"
-     href="mailto:dineshmrao04@gmail.com?subject=Package Inquiry&body=Hello D4U Travels, I need help choosing a package.">
-     📧 Email Us
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <p>© 2026 D4U Travels | All Rights Reserved</p>
-  <p>Email: <a href="mailto:dineshmrao04@gmail.com">dineshmrao04@gmail.com</a></p>
+<footer>
+<p>📧 dineshmrao04@gmail.com</p>
+<p>© 2026 D4U Travels</p>
 </footer>
 
-<!-- MOBILE MENU SCRIPT -->
 <script>
-  const toggle = document.getElementById("menuToggle");
-  const nav = document.getElementById("navMenu");
 
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
+function filterData(){
+
+let search=document.getElementById("search").value.toLowerCase();
+let price=document.getElementById("priceFilter").value;
+
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+let name=card.getAttribute("data-name");
+let p=card.getAttribute("data-price");
+
+let matchSearch=name.includes(search);
+let matchPrice=(price==="all"||price===p);
+
+card.style.display=(matchSearch&&matchPrice)?"block":"none";
+});
+
+}
+
 </script>
 
 </body>
