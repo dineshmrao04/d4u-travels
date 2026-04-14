@@ -19,9 +19,10 @@ body{
 background:linear-gradient(135deg,#0b1220,#050814);
 color:white;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-/* ================= HEADER (IMPROVED) ================= */
+/* HEADER */
 header{
 position:fixed;
 top:0;
@@ -30,15 +31,10 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:14px 6vw;
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(255,255,255,0.08);
+padding:12px 18px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
 z-index:1000;
-}
-
-header.scrolled{
-background:#000;
 }
 
 .logo{
@@ -49,19 +45,18 @@ text-decoration:none;
 color:white;
 }
 
-.logo img{
-height:40px;
-}
+.logo img{height:40px}
 
+/* NAV */
 nav{
 display:flex;
-gap:25px;
+gap:18px;
 }
 
 nav a{
 text-decoration:none;
 color:white;
-font-size:15px;
+font-weight:500;
 transition:0.3s;
 }
 
@@ -69,54 +64,54 @@ nav a:hover{
 color:#00d4ff;
 }
 
-/* MOBILE MENU */
-.menu-btn{
+/* HAMBURGER */
+.menu-toggle{
 display:none;
-font-size:28px;
+font-size:26px;
 cursor:pointer;
+color:white;
 }
 
-/* ================= HERO (BALANCED HEIGHT) ================= */
+/* HERO (SMALL) */
 .hero{
-width:100%;
-min-height:75vh; /* reduced height for better balance */
+height:55vh;
+background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
-background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
-padding:100px 6vw 40px;
+text-align:center;
+padding:10px;
 }
 
 .hero-box{
-width:100%;
-max-width:1200px;
-text-align:center;
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(18px);
-padding:40px 30px;
-border-radius:25px;
+max-width:500px;
+width:90%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(12px);
+padding:20px;
+border-radius:18px;
 }
 
 .hero h1{
-font-size:clamp(30px,4vw,60px);
+font-size:clamp(22px,4vw,40px);
 }
 
 .hero p{
-margin:10px 0 20px;
+margin:10px 0 15px;
+font-size:14px;
 color:#ddd;
 }
 
 /* BUTTON */
 .btn{
 display:inline-block;
-padding:12px 28px;
+padding:12px 25px;
 border-radius:12px;
 background:#00d4ff;
 color:black;
 font-weight:600;
 text-decoration:none;
 transition:0.3s;
-box-shadow:0 0 18px #00d4ff;
 }
 
 .btn:hover{
@@ -124,31 +119,32 @@ background:#00ffa6;
 transform:scale(1.05);
 }
 
-/* ================= SECTIONS (LESS HEIGHT, MORE WIDTH FEEL) ================= */
+/* SECTION */
 .section{
-width:100%;
-padding:60px 6vw; /* reduced height */
+padding:70px 15px;
 text-align:center;
 }
 
 .section h2{
-font-size:clamp(22px,3vw,34px);
 margin-bottom:25px;
+font-size:30px;
 }
 
-/* GRID WIDE LOOK */
+/* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+max-width:1100px;
+margin:auto;
 }
 
 /* CARD */
 .card{
-background:rgba(255,255,255,0.06);
+background:rgba(255,255,255,0.05);
 backdrop-filter:blur(15px);
 border-radius:18px;
-padding:14px;
+overflow:hidden;
 transition:0.3s;
 }
 
@@ -158,75 +154,92 @@ transform:translateY(-8px);
 
 .card img{
 width:100%;
-height:180px;
+height:160px;
 object-fit:cover;
-border-radius:12px;
+display:block;
+}
+
+.card h3{
+margin:10px 0 5px;
+}
+
+.card p{
+margin-bottom:12px;
+color:#00d4ff;
 }
 
 /* FEATURES */
 .features{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:18px;
+max-width:900px;
+margin:auto;
 }
 
-/* ================= EMAIL BUTTON (IMPROVED FAB STYLE) ================= */
+.feature-box{
+background:rgba(255,255,255,0.05);
+padding:22px;
+border-radius:18px;
+}
+
+/* TESTIMONIAL */
+.testimonial{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+}
+
+/* EMAIL BUTTON */
 .email-btn{
 position:fixed;
-bottom:25px;
-right:25px;
-width:60px;
-height:60px;
-display:flex;
-align-items:center;
-justify-content:center;
+bottom:18px;
+right:18px;
 background:#00d4ff;
 color:black;
+padding:14px;
 border-radius:50%;
-font-size:22px;
+font-size:20px;
 text-decoration:none;
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
-transition:0.3s;
-}
-
-.email-btn:hover{
-background:#00ffa6;
-transform:scale(1.1);
 }
 
 /* FOOTER */
 footer{
-padding:25px;
+padding:20px;
 text-align:center;
 background:#050814;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 @media(max-width:768px){
 
+.menu-toggle{
+display:block;
+}
+
 nav{
-display:none;
-position:absolute;
-top:65px;
-right:6vw;
+position:fixed;
+top:60px;
+right:-100%;
 flex-direction:column;
-background:black;
-padding:15px;
-border-radius:10px;
+background:#000;
+width:220px;
+height:100vh;
+padding:20px;
+transition:0.3s;
 }
 
 nav.active{
-display:flex;
+right:0;
 }
 
-.menu-btn{
-display:block;
-}
+.hero{
+height:45vh;
 }
 
-/* SCROLL FIX */
-html{
-scroll-behavior:smooth;
+.hero-box{
+padding:18px;
+}
 }
 </style>
 </head>
@@ -234,12 +247,12 @@ scroll-behavior:smooth;
 <body>
 
 <header>
-<a class="logo">
+<a href="#" class="logo">
 <img src="./D4U.png">
 <span>D4U TRAVELS</span>
 </a>
 
-<div class="menu-btn" onclick="document.getElementById('nav').classList.toggle('active')">☰</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 <nav id="nav">
 <a href="index.html">Home</a>
@@ -258,13 +271,50 @@ scroll-behavior:smooth;
 </div>
 </section>
 
+<!-- QUICK INFO -->
+<section class="section">
+<div class="features">
+<div class="feature-box">💰 Lowest Prices</div>
+<div class="feature-box">⚡ Instant Booking</div>
+<div class="feature-box">🌍 100+ Destinations</div>
+<div class="feature-box">📞 24/7 Support</div>
+</div>
+</section>
+
 <!-- DESTINATIONS -->
 <section class="section">
 <h2>🌍 Popular Destinations</h2>
 <div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2"><h3>Goa</h3></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"><h3>Manali</h3></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c"><h3>Dubai</h3></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2">
+<h3>Goa</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<h3>Manali</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
+<h3>Dubai</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34">
+<h3>Paris</h3>
+</div>
+
+</div>
+</section>
+
+<!-- OFFERS -->
+<section class="section">
+<div class="feature-box" style="max-width:800px;margin:auto;">
+<h2>🔥 Limited Offer</h2>
+<p>Get up to 30% OFF on International Packages</p>
+<a href="packages.html" class="btn">Grab Deal</a>
 </div>
 </section>
 
@@ -272,18 +322,70 @@ scroll-behavior:smooth;
 <section class="section">
 <h2>💎 Premium Packages</h2>
 <div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"><h3>Maldives</h3></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b"><h3>Europe</h3></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<h3>Maldives</h3>
+<p>₹75,000</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b">
+<h3>Europe</h3>
+<p>₹1,20,000</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4">
+<h3>Bali</h3>
+<p>₹55,000</p>
+</div>
+
 </div>
 </section>
 
-<!-- FEATURES -->
+<!-- TESTIMONIALS -->
 <section class="section">
-<h2>⭐ Why Choose Us</h2>
+<h2>⭐ Happy Travelers</h2>
+<div class="grid">
+
+<div class="testimonial">
+<p>"Amazing service! Very smooth booking."</p>
+<h3>- Rahul</h3>
+</div>
+
+<div class="testimonial">
+<p>"Best travel agency, highly recommended."</p>
+<h3>- Priya</h3>
+</div>
+
+<div class="testimonial">
+<p>"Great prices and fast support."</p>
+<h3>- Amit</h3>
+</div>
+
+</div>
+</section>
+
+<!-- STATS -->
+<section class="section">
+<h2>📊 Our Growth</h2>
 <div class="features">
-<div>💰 Best Price</div>
-<div>⚡ Fast Booking</div>
-<div>🌍 Global Tours</div>
+
+<div class="feature-box"><h3>500+</h3><p>Happy Customers</p></div>
+<div class="feature-box"><h3>120+</h3><p>Destinations</p></div>
+<div class="feature-box"><h3>5+</h3><p>Years Experience</p></div>
+<div class="feature-box"><h3>24/7</h3><p>Support</p></div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+<div class="feature-box" style="max-width:700px;margin:auto;">
+<h2>✈️ Ready to Travel?</h2>
+<p>Book your dream trip now with D4U Travels</p>
+<a href="booking.html" class="btn">Book Now</a>
 </div>
 </section>
 
@@ -291,8 +393,13 @@ scroll-behavior:smooth;
 <p>© 2026 D4U Travels</p>
 </footer>
 
-<!-- EMAIL BUTTON -->
-<a class="email-btn" href="mailto:dineshmrao04@gmail.com">📧</a>
+<a href="mailto:dineshmrao04@gmail.com" class="email-btn">📧</a>
+
+<script>
+function toggleMenu(){
+document.getElementById("nav").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
