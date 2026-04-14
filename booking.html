@@ -358,7 +358,9 @@ font-size:18px;
 </footer>
 
 <script>
-let selectedPerson="";
+let selectedPerson = "";
+
+const API_URL = "https://script.google.com/macros/s/AKfycbxtC_ZeWDfVWfXcab5R33CBHPVaesxGxkj0_OFho6rqsWe6dc8_PuYGMOtKyiFrgmLB/exec";
 
 function toggleDropdown(){
 let opt=document.getElementById("options");
@@ -389,11 +391,29 @@ alert('Please fill all fields');
 return;
 }
 
+fetch(API_URL,{
+method:'POST',
+body: JSON.stringify({
+name:name,
+email:email,
+from:from,
+place:place,
+date:date,
+travelers:selectedPerson
+})
+})
+.then(res=>res.text())
+.then(data=>{
 document.getElementById('successMsg').style.display='block';
 
 document.querySelectorAll('input').forEach(i=>i.value='');
 document.querySelector(".select-box").innerText="Select Travelers";
 selectedPerson="";
+})
+.catch(err=>{
+alert("Error sending data");
+console.log(err);
+});
 }
 </script>
 
