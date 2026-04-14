@@ -12,24 +12,28 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif
+font-family:'Poppins',sans-serif;
 }
 
 body{
 background:linear-gradient(135deg,#0b1220,#02050d);
 color:white;
-min-height:100vh;
+overflow-x:hidden;
 }
 
 /* HEADER */
 header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 30px;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
-border-bottom:1px solid rgba(255,255,255,0.1);
+padding:12px 18px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
+z-index:1000;
 }
 
 .logo{
@@ -40,14 +44,13 @@ text-decoration:none;
 color:white;
 }
 
-.logo img{height:40px}
+.logo img{height:38px}
 
-/* HOME BUTTON */
 .back-btn{
 text-decoration:none;
-padding:8px 18px;
-border-radius:20px;
-background:rgba(0,212,255,0.15);
+padding:8px 14px;
+border-radius:18px;
+background:rgba(0,212,255,0.12);
 border:1px solid #00d4ff;
 color:#00d4ff;
 transition:0.3s;
@@ -56,92 +59,82 @@ transition:0.3s;
 .back-btn:hover{
 background:#00d4ff;
 color:black;
-box-shadow:0 0 15px #00d4ff;
 }
 
-/* SECTION */
+/* MAIN */
 .section{
-padding:80px 20px;
+padding:110px 12px 30px;
 display:flex;
 justify-content:center;
-align-items:center;
 }
 
-/* GLASS BOX */
+/* FORM */
 .booking-box{
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(25px);
-padding:40px;
-border-radius:25px;
 width:100%;
 max-width:520px;
-box-shadow:0 20px 50px rgba(0,0,0,0.7);
-border:1px solid rgba(255,255,255,0.1);
-}
-
-/* INPUT GROUP */
-.input-group{
-margin-bottom:18px;
-}
-
-.input-group label{
-font-size:13px;
-color:#00d4ff;
-margin-bottom:6px;
-display:block;
-}
-
-/* INPUT */
-.input-group input{
-width:100%;
-padding:14px;
-border-radius:12px;
 background:rgba(255,255,255,0.06);
-border:1px solid rgba(255,255,255,0.12);
+backdrop-filter:blur(20px);
+padding:22px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+
+h2{
+text-align:center;
+margin-bottom:15px;
+}
+
+/* INPUTS */
+.input-group{
+margin-bottom:12px;
+}
+
+label{
+font-size:12px;
+color:#00d4ff;
+display:block;
+margin-bottom:5px;
+}
+
+input{
+width:100%;
+padding:11px;
+border-radius:10px;
+background:rgba(0,0,0,0.35);
+border:1px solid #00d4ff;
 color:white;
 outline:none;
-transition:0.3s;
+font-size:14px;
 }
 
-.input-group input:focus{
-border:1px solid #00d4ff;
-box-shadow:0 0 12px #00d4ff;
-}
-
-/* 🔥 CUSTOM DROPDOWN */
+/* DROPDOWN */
 .custom-select{
 position:relative;
 }
 
 .select-box{
-padding:14px;
-border-radius:12px;
-background:rgba(255,255,255,0.06);
-border:1px solid rgba(255,255,255,0.12);
-cursor:pointer;
-transition:0.3s;
-}
-
-.select-box:hover{
+padding:11px;
+border-radius:10px;
+background:rgba(0,0,0,0.35);
 border:1px solid #00d4ff;
-box-shadow:0 0 10px #00d4ff;
+cursor:pointer;
 }
 
 .options{
 position:absolute;
 width:100%;
-background:#0f1b33;
-border-radius:12px;
+background:#0b1220;
+border:1px solid #00d4ff;
+border-radius:10px;
 margin-top:5px;
 display:none;
-overflow:hidden;
 z-index:10;
 }
 
 .option{
-padding:12px;
+padding:10px;
 cursor:pointer;
-transition:0.2s;
 }
 
 .option:hover{
@@ -152,35 +145,102 @@ color:black;
 /* BUTTON */
 .btn{
 width:100%;
-padding:14px;
+padding:12px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:linear-gradient(45deg,#00d4ff,#00ffa6);
 color:black;
 font-weight:600;
 cursor:pointer;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #00d4ff;
+margin-top:8px;
 }
 
 /* SUCCESS */
 .success{
-margin-top:15px;
-color:#00ffae;
 text-align:center;
+margin-top:10px;
+color:#00ffa6;
 display:none;
+}
+
+/* EXTRA SECTION */
+.extra-section{
+margin-top:18px;
+}
+
+.info-cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:10px;
+margin-top:12px;
+}
+
+.info-card{
+background:rgba(0,0,0,0.35);
+border:1px solid #00d4ff;
+padding:12px;
+border-radius:12px;
+text-align:center;
+}
+
+.info-card h3{
+font-size:13px;
+color:#00d4ff;
+}
+
+.info-card p{
+font-size:12px;
+color:#ccc;
+margin-top:5px;
+}
+
+/* CONTACT */
+.contact-box{
+margin-top:12px;
+text-align:center;
+padding:12px;
+border-radius:12px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.email-btn{
+display:inline-block;
+margin-top:8px;
+padding:10px 14px;
+border-radius:10px;
+background:#00ffa6;
+color:black;
+text-decoration:none;
+font-weight:600;
 }
 
 /* FOOTER */
 footer{
-padding:30px;
 text-align:center;
+padding:20px;
 background:#050814;
-margin-top:40px;
+margin-top:25px;
+}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+
+.section{
+padding:95px 10px 25px;
+}
+
+.booking-box{
+padding:16px;
+}
+
+input,.select-box{
+font-size:13px;
+}
+
+h2{
+font-size:18px;
+}
 }
 </style>
 </head>
@@ -197,6 +257,7 @@ margin-top:40px;
 </header>
 
 <section class="section">
+
 <div class="booking-box">
 
 <h2>✈️ Book Your Trip</h2>
@@ -226,7 +287,6 @@ margin-top:40px;
 <input id="date" type="date">
 </div>
 
-<!-- 🔥 CUSTOM DROPDOWN -->
 <div class="input-group">
 <label>Travelers</label>
 
@@ -239,19 +299,61 @@ margin-top:40px;
 <div class="option" onclick="selectOption('3-5 Persons')">3-5 Persons</div>
 <div class="option" onclick="selectOption('Family')">Family</div>
 </div>
-</div>
 
+</div>
 </div>
 
 <button class="btn" onclick="sendData()">Confirm Booking</button>
 
 <p class="success" id="successMsg">✅ Booking Sent Successfully!</p>
 
+<!-- EXTRA SECTION -->
+<div class="extra-section">
+
+<div class="info-cards">
+<div class="info-card">
+<h3>🌍 Trusted</h3>
+<p>10K+ Happy Travelers</p>
+</div>
+
+<div class="info-card">
+<h3>💰 Best Price</h3>
+<p>Lowest Guaranteed</p>
+</div>
+
+<div class="info-card">
+<h3>⚡ Fast Booking</h3>
+<p>Instant confirmation</p>
+</div>
+
+<div class="info-card">
+<h3>🧳 Custom Trips</h3>
+<p>Personal travel plans</p>
+</div>
+
+<div class="info-card">
+<h3>📞 Support</h3>
+<p>24/7 Help Available</p>
+</div>
+
+<div class="info-card">
+<h3>🌍 Tours</h3>
+<p>Worldwide Packages</p>
+</div>
+
+</div>
+
+<div class="contact-box">
+<p>Need help? Contact us anytime</p>
+<a href="mailto:dineshmrao04@gmail.com" class="email-btn">Email 📧</a>
+</div>
+
+</div>
+
 </div>
 </section>
 
 <footer>
-<p>📧 dineshmrao04@gmail.com</p>
 <p>© 2026 D4U Travels</p>
 </footer>
 
@@ -276,7 +378,6 @@ document.getElementById("options").style.display="none";
 }
 
 function sendData(){
-
 let name=document.getElementById('name').value;
 let email=document.getElementById('email').value;
 let from=document.getElementById('from').value;
@@ -288,18 +389,11 @@ alert('Please fill all fields');
 return;
 }
 
-fetch('YOUR_GOOGLE_SCRIPT_URL',{
-method:'POST',
-mode:'no-cors',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify({
-name,email,from,place,date,persons:selectedPerson
-})
-});
-
 document.getElementById('successMsg').style.display='block';
+
 document.querySelectorAll('input').forEach(i=>i.value='');
 document.querySelector(".select-box").innerText="Select Travelers";
+selectedPerson="";
 }
 </script>
 
